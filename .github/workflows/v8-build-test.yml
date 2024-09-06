@@ -46,6 +46,12 @@ jobs:
         uses: ./.github/actions/build-macos
         with:
           archive-name: v8_${{ runner.os }}_amd64
+        
+      - name: Build V8 for iOS
+        if: startsWith(matrix.os, 'macos')
+        uses: ./.github/actions/build-ios
+        with:
+          archive-name: v8_iOS_arm64
 
       - name: Build V8 for Windows
         if: startsWith(matrix.os, 'windows')

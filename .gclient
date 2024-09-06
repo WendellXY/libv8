@@ -29,3 +29,4 @@ solutions = [
     },
   },
 ]
+target_os = ['ios']
