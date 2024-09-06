@@ -27,6 +27,7 @@ runs:
     - name: Setup Build Tools
       shell: bash
       run: |
+        brew install nutcracker/tap/openssl@1.0
         brew install ninja ccache
 
         echo "$(brew --prefix ccache)/libexec" >> "$GITHUB_PATH"
