@@ -45,8 +45,6 @@ runs:
 
     - name: Compile V8
       shell: bash
-      env:
-        DEVELOPER_DIR: /Applications/Xcode_11.7.app/Contents/Developer
       run: ./v8_compile.sh
 
     - name: Show CCache Status

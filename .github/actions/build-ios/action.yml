@@ -1,9 +1,9 @@
 name: Build for iOS
-description: 'Build V8 for iOS'
+description: "Build V8 for iOS"
 
 inputs:
   archive-name:
-    description: 'Base name of the archive to create'
+    description: "Base name of the archive to create"
     default: v8_iOS
     required: false
     type: string
@@ -22,7 +22,7 @@ runs:
     - name: Setup Python 2.7
       uses: MatteoH2O1999/setup-python@v2
       with:
-        python-version: '2.7'
+        python-version: "2.7"
 
     - name: Setup Build Tools
       shell: bash
@@ -45,8 +45,6 @@ runs:
 
     - name: Compile V8
       shell: bash
-      env:
-        DEVELOPER_DIR: /Applications/Xcode_11.7.app/Contents/Developer
       run: ./v8_compile.sh "iOS"
 
     - name: Show CCache Status
