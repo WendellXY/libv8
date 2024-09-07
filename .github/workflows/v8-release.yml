@@ -30,12 +30,16 @@ jobs:
         uses: ./.github/actions/build-macos
         with:
           archive-name: v8_${{ runner.os }}_amd64
-    
+
       - name: Build Release for iOS
         if: startsWith(matrix.os, 'macos')
         uses: ./.github/actions/build-ios
         with:
           archive-name: v8_iOS_arm64
+        env:
+          BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
+          P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
+          KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
 
       - name: Build Release for Windows
         if: startsWith(matrix.os, 'windows')
